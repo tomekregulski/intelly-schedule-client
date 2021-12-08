@@ -4,13 +4,15 @@ body {
 }
 
 table {
-  width: 100%;
+  width: 99%;
   border-collapse: collapse;
+  margin: 0 auto;
 }
 
 thead th {
   text-align: left;
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
+  background: rgba(0, 163, 233, 0.584);
 }
 
 thead button {
@@ -21,6 +23,8 @@ thead button {
   font-size: inherit;
   padding: 0.5em;
   margin-bottom: 1px;
+  background-color: transparent;
+  color: #fff;
 }
 
 thead button.ascending::after {

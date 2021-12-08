@@ -45,9 +45,28 @@ const ProductTable = (props) => {
   };
   return (
     <table>
-      <caption>Scheduled Events</caption>
       <thead>
         <tr>
+          <th
+            style={{
+              // display: 'flex',
+              // flexDirection: 'row',
+              // alignItems: 'center',
+              // justifyContent: 'center',
+              margin: '0 auto',
+            }}
+          >
+            <input
+              style={{
+                // display: 'flex',
+                // flexDirection: 'row',
+                // alignItems: 'center',
+                // justifyContent: 'center',
+                margin: '0 32%',
+              }}
+              type='checkbox'
+            />
+          </th>
           <th>
             <button
               type='button'
@@ -63,16 +82,7 @@ const ProductTable = (props) => {
               onClick={() => requestSort('date')}
               className={getClassNamesFor('date')}
             >
-              Date
-            </button>
-          </th>
-          <th>
-            <button
-              type='button'
-              onClick={() => requestSort('time')}
-              className={getClassNamesFor('time')}
-            >
-              Time
+              Date and Time
             </button>
           </th>
           <th>
@@ -90,7 +100,25 @@ const ProductTable = (props) => {
               onClick={() => requestSort('store')}
               className={getClassNamesFor('store')}
             >
-              Store
+              Venue
+            </button>
+          </th>
+          <th>
+            <button
+              type='button'
+              onClick={() => requestSort('brand')}
+              className={getClassNamesFor('brand')}
+            >
+              Brand
+            </button>
+          </th>
+          <th>
+            <button
+              type='button'
+              onClick={() => requestSort('campaign')}
+              className={getClassNamesFor('campaign')}
+            >
+              Campaign
             </button>
           </th>
         </tr>
@@ -98,11 +126,20 @@ const ProductTable = (props) => {
       <tbody>
         {items.map((item) => (
           <tr key={item.id}>
+            <td>
+              <input type='checkbox' value={item.id} />
+            </td>
             <td>{item.status}</td>
-            <td>{item.date}</td>
-            <td>{item.time}</td>
-            <td>{item.duration}</td>
-            <td>{item.store}</td>
+            <td>
+              {item.date} @ {item.time}
+            </td>
+            <td>
+              {item.duration.split(':')[0]} hrs{' '}
+              {' ' + item.duration.split(':')[1]} min
+            </td>
+            <td>{item.venue}</td>
+            <td>{item.brand}</td>
+            <td>{item.campaign}</td>
           </tr>
         ))}
       </tbody>
@@ -120,56 +157,70 @@ export default function App() {
             status: 'Scheduled',
             date: '12/15/2021',
             time: '3:00',
-            duration: '4 hours',
-            store: 'Whole Foods Market Tribeca',
+            duration: '4:00',
+            venue: 'Whole Foods Market Tribeca',
+            brand: 'Simmer',
+            campaign: 'Simmer Demos',
           },
           {
             id: 2,
             status: 'Scheduled',
             date: '12/17/2021',
             time: '3:00',
-            duration: '4 hours',
-            store: 'Whole Foods Market Upper West Side',
+            duration: '4:00',
+            venue: 'Whole Foods Market Upper West Side',
+            brand: 'Simmer',
+            campaign: 'Simmer Demos',
           },
           {
             id: 3,
             status: 'Scheduled',
             date: '12/16/2021',
             time: '3:00',
-            duration: '4 hours',
-            store: 'Whole Foods Market Columbus Circle',
+            duration: '4:00',
+            venue: 'Whole Foods Market Columbus Circle',
+            brand: 'Simmer',
+            campaign: 'Simmer Demos',
           },
           {
             id: 4,
             status: 'Scheduled',
             date: '12/15/2021',
             time: '3:00',
-            duration: '4 hours',
-            store: 'Whole Foods Market Tribeca',
+            duration: '4:00',
+            venue: 'Whole Foods Market Tribeca',
+            brand: 'Simmer',
+            campaign: 'Simmer Demos',
           },
           {
             id: 5,
             status: 'Scheduled',
             date: '12/17/2021',
             time: '3:00',
-            duration: '4 hours',
-            store: 'Whole Foods Market Upper West Side',
+            duration: '4:00',
+            venue: 'Whole Foods Market Upper West Side',
+            brand: 'Simmer',
+            campaign: 'Simmer Demos',
           },
           {
             id: 6,
             status: 'Scheduled',
             date: '12/16/2021',
             time: '3:00',
-            duration: '4 hours',
-            store: 'Whole Foods Market Columbus Circle',
+            duration: '4:00',
+            venue: 'Whole Foods Market Columbus Circle',
+            brand: 'Simmer',
+            campaign: 'Simmer Demos',
           },
           {
             id: 7,
             status: 'Scheduled',
             date: '12/22/2021',
             time: '3:00',
-            duration: '4 hours',
-            store: 'Whole Foods Market Tribeca',
+            duration: '4:00',
+            venue: 'Whole Foods Market Tribeca',
+            brand: 'Simmer',
+            campaign: 'Simmer Demos',
           },
         ]}
       />
