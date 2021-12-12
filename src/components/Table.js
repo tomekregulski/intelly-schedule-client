@@ -1,4 +1,5 @@
 import React from 'react';
+import DownloadCSV from './DownloadCSV';
 import './Table.css';
 
 const useSortableData = (items, config = null) => {
@@ -44,106 +45,109 @@ const ProductTable = (props) => {
     return sortConfig.key === name ? sortConfig.direction : undefined;
   };
   return (
-    <table>
-      <thead>
-        <tr>
-          <th
-            style={{
-              // display: 'flex',
-              // flexDirection: 'row',
-              // alignItems: 'center',
-              // justifyContent: 'center',
-              margin: '0 auto',
-            }}
-          >
-            <input
+    <>
+      <DownloadCSV />
+      <table>
+        <thead>
+          <tr>
+            <th
               style={{
                 // display: 'flex',
                 // flexDirection: 'row',
                 // alignItems: 'center',
                 // justifyContent: 'center',
-                margin: '0 32%',
+                margin: '0 auto',
               }}
-              type='checkbox'
-            />
-          </th>
-          <th>
-            <button
-              type='button'
-              onClick={() => requestSort('status')}
-              className={getClassNamesFor('status')}
             >
-              Status
-            </button>
-          </th>
-          <th>
-            <button
-              type='button'
-              onClick={() => requestSort('date')}
-              className={getClassNamesFor('date')}
-            >
-              Date and Time
-            </button>
-          </th>
-          <th>
-            <button
-              type='button'
-              onClick={() => requestSort('duration')}
-              className={getClassNamesFor('duration')}
-            >
-              Duration
-            </button>
-          </th>
-          <th>
-            <button
-              type='button'
-              onClick={() => requestSort('store')}
-              className={getClassNamesFor('store')}
-            >
-              Venue
-            </button>
-          </th>
-          <th>
-            <button
-              type='button'
-              onClick={() => requestSort('brand')}
-              className={getClassNamesFor('brand')}
-            >
-              Brand
-            </button>
-          </th>
-          <th>
-            <button
-              type='button'
-              onClick={() => requestSort('campaign')}
-              className={getClassNamesFor('campaign')}
-            >
-              Campaign
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {items.map((item) => (
-          <tr key={item.id}>
-            <td>
-              <input type='checkbox' value={item.id} />
-            </td>
-            <td>{item.status}</td>
-            <td>
-              {item.date} @ {item.time}
-            </td>
-            <td>
-              {item.duration.split(':')[0]} hrs{' '}
-              {' ' + item.duration.split(':')[1]} min
-            </td>
-            <td>{item.venue}</td>
-            <td>{item.brand}</td>
-            <td>{item.campaign}</td>
+              <input
+                style={{
+                  // display: 'flex',
+                  // flexDirection: 'row',
+                  // alignItems: 'center',
+                  // justifyContent: 'center',
+                  margin: '0 32%',
+                }}
+                type='checkbox'
+              />
+            </th>
+            <th>
+              <button
+                type='button'
+                onClick={() => requestSort('status')}
+                className={getClassNamesFor('status')}
+              >
+                Status
+              </button>
+            </th>
+            <th>
+              <button
+                type='button'
+                onClick={() => requestSort('date')}
+                className={getClassNamesFor('date')}
+              >
+                Date and Time
+              </button>
+            </th>
+            <th>
+              <button
+                type='button'
+                onClick={() => requestSort('duration')}
+                className={getClassNamesFor('duration')}
+              >
+                Duration
+              </button>
+            </th>
+            <th>
+              <button
+                type='button'
+                onClick={() => requestSort('store')}
+                className={getClassNamesFor('store')}
+              >
+                Venue
+              </button>
+            </th>
+            <th>
+              <button
+                type='button'
+                onClick={() => requestSort('brand')}
+                className={getClassNamesFor('brand')}
+              >
+                Brand
+              </button>
+            </th>
+            <th>
+              <button
+                type='button'
+                onClick={() => requestSort('campaign')}
+                className={getClassNamesFor('campaign')}
+              >
+                Campaign
+              </button>
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <tr key={item.id}>
+              <td>
+                <input type='checkbox' value={item.id} />
+              </td>
+              <td>{item.status}</td>
+              <td>
+                {item.date} @ {item.time}
+              </td>
+              <td>
+                {item.duration.split(':')[0]} hrs{' '}
+                {' ' + item.duration.split(':')[1]} min
+              </td>
+              <td>{item.venue}</td>
+              <td>{item.brand}</td>
+              <td>{item.campaign}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 
